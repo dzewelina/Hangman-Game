@@ -1,5 +1,5 @@
 var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var wordToGuess = 'APPLE';
+var wordToGuess = 'ABCD';
 
 var lettersDiv = document.getElementById('letters');
 var wordToGuessDiv = document.getElementById('word-to-guess');
@@ -34,14 +34,29 @@ for (var i = 0; i < alphabet.length; i++) {
     document.getElementById(event.srcElement.innerText).disabled = true;
     document.getElementById(event.srcElement.innerText).style.color = 'red';
 
-    //marker tells us if letter occurs in the word
+    //variable marker tells us if letter occurs in the word
     var marker = false;
+    //variable complete tells us if word was completed
+    var complete = true;
 
     for (var j = 0; j < wordToGuess.length; j++) {
       if (event.srcElement.innerText === wordToGuess[j]) {
-        gaps[j].innerText = event.srcElement.innerText + ' ';
+        gaps[j].innerText = event.srcElement.innerText;
         marker = true;
         document.getElementById(event.srcElement.innerText).style.color = 'green';
+      }
+      if (gaps[j].textContent === '_ ') {
+        complete = false;        
+      }
+    }
+
+    // if word is completed (complete = true) -> return information and block all buttons
+    if (complete === true) {
+      result.innerText = 'Good!';
+      again.innerText = 'Try Again';
+      //block all buttons
+      for (var x = 0; x < lettersDiv.childNodes.length; x++) {
+        lettersDiv.childNodes[x].disabled = true;
       }
     }
 
@@ -49,7 +64,7 @@ for (var i = 0; i < alphabet.length; i++) {
     if (marker === false) {
       gallows.src = images[position];
       position++;
-      //if last image was uploaded - return information and block all buttons
+      //if last image was uploaded -> return information and block all buttons
       if (position === images.length) {
         result.innerText = 'Failed!';
         again.innerText = 'Try Again';
