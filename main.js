@@ -1,9 +1,10 @@
 var Fruits = ['apple', 'banana', 'orange'];
-var Games = ['football', 'basketball', 'tennis'];
-var Vegetables = ['carrot', 'cucumber', 'tomato']
+var Sports = ['football', 'basketball', 'tennis'];
+var Vegetables = ['carrot', 'cucumber', 'tomato'];
+var Animals = ['monkey', 'dog', 'cat'];
 
-var categoryList = ['Fruits', 'Games', 'Vegetables'];
-var categoryElements = [Fruits, Games, Vegetables];
+var categoryList = ['Fruits', 'Sports', 'Vegetables', 'Animals'];
+var categoryElements = [Fruits, Sports, Vegetables, Animals];
 
 //get random word from array
 Array.prototype.getWord = function() {
@@ -25,7 +26,7 @@ Object.prototype.block = function(x) {
   }
 }
 
-var gallowsDiv = document.getElementsByTagName('img')[0];
+var gallowsDiv = document.querySelector('img');
 var resultDiv = document.getElementById('result');
 var answerDiv = document.getElementById('answer');
 var againDiv = document.getElementById('new');
@@ -38,9 +39,10 @@ var gaps = document.getElementById('word-to-guess').childNodes;
 for (var i = 0; i < categoryList.length; i++) {
   var category = categoryList[i];
   var categoryButton = document.createElement('button');
+  //button.style.display = block;
 
   categoryButton.innerText = category;
-  categoryButton.id = category;
+  categoryButton.id = 'categoryButton';
 
   categoryDiv.appendChild(categoryButton);
 
@@ -111,7 +113,8 @@ for (var i = 0; i < alphabet.length; i++) {
     }
     // if word is completed (complete = true) -> return information and block all buttons
     if (complete === true) {
-      resultDiv.innerText = 'Good!';
+      resultDiv.innerText = 'Congratulations you have gotten the answer!';
+      resultDiv.style.color = 'green';
       againDiv.innerText = 'Try Again';
       //blockLetters;
       lettersDiv.childNodes.block(true);          
@@ -122,12 +125,14 @@ for (var i = 0; i < alphabet.length; i++) {
       position++;
       //if last image was uploaded -> return information and block all buttons
       if (position === images.length) {
+        
         resultDiv.innerText = 'Sorry, you have been hanged! The answer was:';
+        resultDiv.style.color = 'red';
         var correctAnswer = document.createTextNode(wordToGuess);
         answerDiv.appendChild(correctAnswer);
         againDiv.innerText = 'Try Again';
         //blockLetters;
-        lettersDiv.childNodes.block(true);        
+        lettersDiv.childNodes.block(true);
       }
     }
   });  

@@ -1,6 +1,75 @@
 body {
+  background-color: gainsboro;
   text-align: center;
 }
 
+h1 {
+  font-family: Purisa;
+  font-size: 60px;
+  font-weight: 900;
+  margin-left: 230px;
+}
 
-button.style.margin = '5px';
+h3 {
+  font-size: 20px;
+}
+
+#letters button {
+  margin: 5px;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: Purisa; 
+}
+
+#categoryButton {
+  display: block;
+  background: none;
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+
+#categoryBox {
+  width: 200px;
+  height: 700px;
+}
+
+#workingBox {
+  height: 700px;
+  margin-top: -710px;
+  margin-left: 230px;
+}
+
+#choice {
+  font-style: italic;
+  font-weight: 400;
+}
+
+img {
+  height: 40%;
+  width: 20%;
+  margin-top: 20px;
+}
+
+#word-to-guess {
+  font-size: 40px;
+  height: 60px;
+}
+
+#answer {
+  font-size: 35px;  
+  margin-top: -15px;
+  margin-bottom: 30px;
+}
+
+#result {
+  font-size: 30px;  
+}
+
+a {
+  font-size: 20px;
+} 
