@@ -1,5 +1,6 @@
-# precourse-section-5
+## Hangman game
 
-There's nothing here!
+Game using JavaScript, HTML, CSS and DOM manipulation.
+Next step would be to create words database using for example MongoDB.
 
-You'll have to set up this project for yourself :)
+Available online on: https://dzewelina.github.io/Hangman-Game/
